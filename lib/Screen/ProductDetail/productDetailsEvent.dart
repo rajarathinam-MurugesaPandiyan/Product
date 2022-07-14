@@ -1,4 +1,4 @@
-import '../Model/productModel.dart';
+import '../../Model/productModel.dart';
 
 abstract class ProductDetailsEvent {
   const ProductDetailsEvent();

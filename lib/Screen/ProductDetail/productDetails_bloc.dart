@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:product/bloc/productDetailsEvent.dart';
-import '../Model/productModel.dart';
+import 'package:product/Screen/ProductDetail/productDetailsEvent.dart';
+import '../../Model/productModel.dart';
 
 class ProductDetailsBloc extends Bloc<ProductDetailsEvent , Products>{
   Products? data;

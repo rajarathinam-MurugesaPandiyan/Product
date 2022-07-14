@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:product/bloc/productEvent.dart';
-import '../Model/productModel.dart';
-import '../State/ProductState.dart';
+import 'package:product/Screen/Product/productEvent.dart';
+import '../../Model/productModel.dart';
+import 'FavouritesState.dart';
+
 
 
 class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
