@@ -54,7 +54,7 @@ class _CardWidget extends State<CardWidget> {
                          Padding(
                            padding: const EdgeInsets.all(10),
                            child: Container(
-                             width: 170,
+                             width: MediaQuery.of(context).size.width/2,
                              height: 170,
                              decoration: const BoxDecoration(
                                  color: Colors.white),
@@ -84,7 +84,7 @@ class _CardWidget extends State<CardWidget> {
                        ),
                      ),
                      Padding(
-                       padding: const EdgeInsets.only(top: 30),
+                       padding: const EdgeInsets.only(top: 20),
                        child: Row(
                          mainAxisAlignment:
                          MainAxisAlignment.spaceAround,

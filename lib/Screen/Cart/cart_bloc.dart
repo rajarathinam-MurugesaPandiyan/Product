@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:product/State/ProductState.dart';
-import 'package:product/bloc/productEvent.dart';
-import '../Model/productModel.dart';
+import 'package:product/Screen/Product/productEvent.dart';
+import '../../Model/productModel.dart';
+import 'CartState.dart';
 
 class CartBloc extends Bloc<ProductEvent, CartState> {
 

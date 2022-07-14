@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:product/Model/productModel.dart';
-import 'package:product/Screen/CartScreen.dart';
-import 'package:product/Screen/favouritesScreen.dart';
-import 'package:product/Screen/productDetailsScreen.dart';
-import 'package:product/State/ProductState.dart';
-import 'package:product/bloc/cart_bloc.dart';
-import 'package:product/bloc/favourites_bloc.dart';
-import 'package:product/bloc/productDetailsEvent.dart';
-import 'package:product/bloc/productDetails_bloc.dart';
-import 'package:product/bloc/productEvent.dart';
-import 'package:product/bloc/product_bloc.dart';
+import 'package:product/Screen/Cart/CartScreen.dart';
+import 'package:product/Screen/Favourites/favouritesScreen.dart';
+import 'package:product/Screen/ProductDetail/productDetailsScreen.dart';
+import 'package:product/Screen/Product/ProductState.dart';
+import 'package:product/Screen/Cart/cart_bloc.dart';
+import 'package:product/Screen/Favourites/favourites_bloc.dart';
+import 'package:product/Screen/ProductDetail/productDetailsEvent.dart';
+import 'package:product/Screen/ProductDetail/productDetails_bloc.dart';
+import 'package:product/Screen/Product/productEvent.dart';
+import 'package:product/Screen/Product/product_bloc.dart';
 import 'package:product/widgets/cardWidget.dart';
 import 'package:product/widgets/searchWidget.dart';
+import '../Cart/CartState.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -209,7 +210,7 @@ class _ProductScreen extends State<ProductScreen> {
                   gridDelegate:
                   const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 200,
-                    childAspectRatio: 0.6,
+                    childAspectRatio: 0.65,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 10,
                   ),

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:product/State/ProductState.dart';
-import 'package:product/bloc/favourites_bloc.dart';
-import 'package:product/bloc/productDetails_bloc.dart';
+import 'package:product/Screen/Product/ProductState.dart';
+import 'package:product/Screen/Favourites/favourites_bloc.dart';
+import 'package:product/Screen/ProductDetail/productDetails_bloc.dart';
 
-import '../Model/productModel.dart';
-import '../bloc/cart_bloc.dart';
-import '../bloc/productEvent.dart';
-import '../bloc/product_bloc.dart';
+import '../../Model/productModel.dart';
+import '../Cart/CartState.dart';
+import '../Cart/cart_bloc.dart';
+import '../Product/productEvent.dart';
+import '../Product/product_bloc.dart';
 
 
 class ProductDetailsScreen extends StatefulWidget{

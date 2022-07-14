@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:product/Model/productModel.dart';
-import 'package:product/State/ProductState.dart';
-import 'package:product/bloc/productEvent.dart';
+import 'package:product/Screen/Product/ProductState.dart';
+import 'package:product/Screen/Product/productEvent.dart';
 import 'package:product/repository/ApiRepository.dart';
 
 
