@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:product/Screen/Payment/paymentscreen.dart';
 import 'package:product/Screen/Product/ProductState.dart';
 import 'package:product/Screen/Cart/cart_bloc.dart';
 import 'package:product/Screen/Product/productEvent.dart';
 
+import '../Product/product_bloc.dart';
 import 'CartState.dart';
 
 
@@ -18,13 +20,17 @@ class CartScreen extends StatefulWidget{
 
 class _CartScreen  extends State<CartScreen>{
 
+
+
    @override
    void initState(){
      super.initState();
    }
 
+
   @override
   Widget build(BuildContext context) {
+
     return  Scaffold(
       appBar: AppBar(
         title: const Text("Cart"),
@@ -97,6 +103,11 @@ class _CartScreen  extends State<CartScreen>{
                                                                 product: state.productList![index]
                                                               )
                                                             );
+                                                            BlocProvider.of<ProductBloc>(
+                                                                context)
+                                                                .add(ProductRemoveIcon(
+                                                              products: state.productList![index],
+                                                            ));
                                                           }
                                                           BlocProvider.of<CartBloc>(context).add(CartItemCountDecreaser(
                                                               product: state.productList![index]
@@ -127,6 +138,7 @@ class _CartScreen  extends State<CartScreen>{
                     );
                 },
               );
+
             }else{
               return Container(
                 child: const Text("There is no Products in the cart"),
@@ -137,9 +149,9 @@ class _CartScreen  extends State<CartScreen>{
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: (){
-
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentScreen()));
         },
-        label: const Text("CheckOut"),
+        label: const Text("Place Order"),
       ),
     );
   }

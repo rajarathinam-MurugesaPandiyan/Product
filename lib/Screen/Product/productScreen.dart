@@ -49,6 +49,7 @@ class _ProductScreen extends State<ProductScreen> {
           .add(ProductAddtoCartEvent(
         product: value,
       ));
+
   }
 
   Future<bool> _addFavourites(Products? value)async {
@@ -234,10 +235,13 @@ class _ProductScreen extends State<ProductScreen> {
                       },
                       // Add Icon Tap Function
                       addIconTap: () {
-                        setState((){
-                          state.productList![index].remove =  !state.productList![index].remove!;
-                        });
-                        if(state.productList![index].remove!){
+                        BlocProvider.of<ProductBloc>(
+                            context)
+                            .add(ProductRemoveIcon(
+                          products: state.productList![index],
+                        ));
+
+                        if(!state.productList![index].remove!){
                           _addToCart(state.productList![index]);
                         }else{
                           BlocProvider.of<CartBloc>(context).add(ProductRemovetoCartEvent(

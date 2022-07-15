@@ -153,8 +153,13 @@ class _ProductDetailScreen extends State<ProductDetailsScreen>{
                                                       if(name == 1){
                                                         BlocProvider.of<CartBloc>(context).add(ProductRemovetoCartEvent(
                                                             product: state
-                                                        )
+                                                           )
                                                         );
+                                                        BlocProvider.of<ProductBloc>(
+                                                            context)
+                                                            .add(ProductRemoveIcon(
+                                                          products: state,
+                                                        ));
                                                       }
                                                        BlocProvider.of<CartBloc>(context).add(CartItemCountDecreaser(product: state));
                                                      },
@@ -172,7 +177,8 @@ class _ProductDetailScreen extends State<ProductDetailsScreen>{
                                                              }
                                                          }
                                                      return Text(name.toString());
-                                                    }else{return Container();}
+                                                    }else{
+                                                      return Container();}
                                                    }
                                                  ),
 

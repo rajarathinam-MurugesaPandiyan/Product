@@ -30,7 +30,12 @@ class ProductList extends ProductEvent{
   });
 }
 
-
+class ProductRemoveIcon extends ProductEvent{
+   final Products? products;
+  const ProductRemoveIcon( {
+    this.products
+  });
+}
 
 class ProductAscendingSortEvent extends ProductEvent{}
 
@@ -41,7 +46,7 @@ class ProductAllEvent extends ProductEvent{}
 class ProductSearchEvent extends ProductEvent{
   final String? searchQuery;
 
-  ProductSearchEvent({
+  const ProductSearchEvent({
     this.searchQuery
    });
 }
@@ -71,7 +76,7 @@ class CartItemCountIncreaser extends ProductEvent{
 class CartItemCountDecreaser extends ProductEvent{
   final Products? product;
 
-  CartItemCountDecreaser({this.product});
+  const CartItemCountDecreaser({this.product});
 }
 
 class ProductRemovetoCartEvent  extends ProductEvent{

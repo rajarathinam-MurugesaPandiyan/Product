@@ -40,6 +40,19 @@ class ProductBloc extends Bloc<ProductEvent, ProductListState> {
         emit(ProductListState(a));
         myData = a;
       }
+      if(event is ProductRemoveIcon){
+        final List<Products> a = [];
+        for (int i = 0; i < myData!.length; i++){
+          Products product = myData![i];
+          if (myData![i].id == event.products!.id){
+            product = product.copyWith(remove : !product.remove!);
+
+          }
+          a.add(product);
+        }
+        emit(ProductListState(a));
+        myData = a;
+      }
       if(event is ProductSearchEvent){
         List<Products> filteredList = [];
         if(event.searchQuery!.isEmpty){
