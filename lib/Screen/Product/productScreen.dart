@@ -11,6 +11,7 @@ import 'package:product/Screen/ProductDetail/productDetailsEvent.dart';
 import 'package:product/Screen/ProductDetail/productDetails_bloc.dart';
 import 'package:product/Screen/Product/productEvent.dart';
 import 'package:product/Screen/Product/product_bloc.dart';
+import 'package:product/Screen/Report/reportScreen.dart';
 import 'package:product/widgets/cardWidget.dart';
 import 'package:product/widgets/searchWidget.dart';
 import '../Cart/CartState.dart';
@@ -126,13 +127,18 @@ class _ProductScreen extends State<ProductScreen> {
                         child: Text('Descending'),
                       ),
                     ]),
+            IconButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ReportScreen()));
+                },
+                icon: const Icon(Icons.report)
+            ),
             Stack(
               children: [
                 IconButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>  const CartScreen()
-                            ));
+                              builder: (context) =>  const CartScreen()));
                      },
                     icon: const Icon(Icons.shopping_cart)),
                 Positioned(
@@ -211,7 +217,7 @@ class _ProductScreen extends State<ProductScreen> {
                   gridDelegate:
                   const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 200,
-                    childAspectRatio: 0.65,
+                    childAspectRatio: 0.6,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 10,
                   ),

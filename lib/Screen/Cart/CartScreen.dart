@@ -92,7 +92,7 @@ class _CartScreen  extends State<CartScreen>{
                                    Column(
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children:[
-                                              Text((state.productList![index].price!*state.productList![index].itemCount!).round().toString()),
+                                              Text((state.productList![index].price!*state.productList![index].itemCount!).toString()),
                                               Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                 children: [

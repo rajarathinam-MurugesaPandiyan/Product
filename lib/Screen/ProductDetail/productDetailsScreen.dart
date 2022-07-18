@@ -14,7 +14,6 @@ import '../Product/product_bloc.dart';
 class ProductDetailsScreen extends StatefulWidget{
 
 
-
   const ProductDetailsScreen({Key? key}) : super(key: key);
 
 

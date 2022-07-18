@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:product/Screen/Cart/CartState.dart';
 import 'package:product/Screen/Payment/paymentBloc.dart';
 import 'package:product/Screen/Payment/paymentState.dart';
 import 'package:product/Screen/Payment/paymentevent.dart';
 import 'package:product/widgets/inputWidget.dart';
 
 import '../../Model/ObjectModel.dart';
+import '../Cart/cart_bloc.dart';
 
 class PaymentScreen extends StatefulWidget{
+  const PaymentScreen({Key? key}) : super(key: key);
+
 
   @override
   State<PaymentScreen> createState() => _PaymentScreen();
@@ -21,7 +25,7 @@ class _PaymentScreen extends State<PaymentScreen> {
     title: "Google Pay"),
     ObjectModel(imageUrl: "https://play-lh.googleusercontent.com/6iyA2zVz5PyyMjK5SIxdUhrb7oh9cYVXJ93q6DZkmx07Er1o90PXYeo6mzL4VC2Gj9s",
     title: "PhonePe"),
-    ObjectModel(imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/00/7d/9e/007d9e5f-a2df-cb4d-75bc-b6f6aeada016/AppIcon-0-0-1x_U007emarketing-0-0-0-8-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x600wa.png", title: "PhonePe")
+    ObjectModel(imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/00/7d/9e/007d9e5f-a2df-cb4d-75bc-b6f6aeada016/AppIcon-0-0-1x_U007emarketing-0-0-0-8-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x600wa.png", title: "Paytm")
   ];
 
 
@@ -54,7 +58,30 @@ class _PaymentScreen extends State<PaymentScreen> {
                  placeholder: "Enter Your Billing Address",
                  controller: _addressController,
                ),
-               Container(
+               Padding(
+                   padding: EdgeInsets.all(20),
+                 child:  BlocBuilder<CartBloc , CartState>(
+                   builder: (BuildContext context, state) {
+                     int totalAmount = 0;
+                     for(var e in  state.productList!){
+                       totalAmount += (e.price!.round() * e.itemCount!.toInt());
+
+                     }
+                     return Container(
+                       alignment: Alignment.centerLeft,
+                       child: Text(
+                        "Total Amount - ${totalAmount.toString()}",
+                         style: const TextStyle(
+                           fontWeight: FontWeight.w700,
+                           fontSize: 25
+                         ),
+                       ) ,
+                     );
+                   },
+
+                 ),
+               ),
+               SizedBox(
                  height: 400,
                  child:  ListView.builder(
                      itemCount: paymentScreenItems!.length,
@@ -82,7 +109,7 @@ class _PaymentScreen extends State<PaymentScreen> {
                                    builder: (context , state){
                                      return  Padding(
                                        padding: EdgeInsets.all(10),
-                                       child: Text("${paymentScreenItems![index].title}  ${state.phoneNumber}"),
+                                       child: Text("${paymentScreenItems![index].title}"),
                                      );
                                    }
                                ),
